@@ -1,0 +1,205 @@
+/* Website Defaults */
+html {
+    height: 100%;
+}
+
+body {
+    background-color: rgb(7, 22, 41);
+    font-family: 'Verdana', sans-serif;
+    color: #ffffff;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Disable Default Hyperlink Appearance */
+a:link {
+    color: #ffffff;
+}
+
+a:visited {
+    color: #ffffff;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+/* Navigation Bar */
+.topnav {
+    background-image: linear-gradient(rgba(5, 56, 133, 0.5), rgba(34, 99, 184, 0.5)); /* 59, 11, 5 */
+    display: block;
+    align-content: space-around;
+    margin: -10px;
+    height: 60px;
+    border-bottom: 0px solid rgb(255, 213, 205); /* 176, 211, 255 */
+    filter: drop-shadow(0px 0px 4px rgba(1, 1, 33, 0.202));
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+.logo img{
+    height: 60px;
+    padding-top: 4px;
+  }
+
+/* Main Menu */
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 450px;
+
+}
+
+.buttonOne {
+    background-image: linear-gradient(rgba(5, 56, 133, 0.5), rgba(34, 99, 184, 0.5));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    font-size: 24px;
+    border-radius: 25px;
+    text-decoration: none;
+
+    margin-right: 12.5px;
+    margin-bottom: 12.5px;
+}
+
+.buttonOne a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%
+}
+
+.buttonTwo {
+    background-color: rgba(5, 56, 133, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    font-size: 24px;
+    border-radius: 25px;
+
+    margin-bottom: 12.5px;
+
+    color: rgb(7, 22, 41);
+}
+
+.buttonThree {
+    background-color: rgba(5, 56, 133, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    font-size: 24px;
+    border-radius: 25px;
+
+    margin-right: 12.5px;
+
+    color: rgb(7, 22, 41);
+}
+
+.buttonFour {
+    background-color: rgba(5, 56, 133, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    font-size: 24px;
+    border-radius: 25px;
+
+    color: rgb(7, 22, 41);
+}
+
+.attr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    font-size: 12px;
+}
+
+.socials {
+    height: 30px;
+    margin-top: 25px;
+}
+
+.socialsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github img {
+    height: 30px;
+    padding-right: 12.5px;
+}
+
+.linkedin img {
+    height: 30px;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        overflow-y: scroll;
+    }
+
+    .menu {
+        margin-top: 100px;
+    }
+
+    .buttonContainer {
+        display: flex;
+        justify-content: center;
+        width: 200px;
+    }
+    
+    .buttonOne {
+        margin-right: 0px;
+    }
+
+    .buttonThree {
+        margin-right: 0px;
+        margin-bottom: 12.5px;
+    }
+
+    .attr {
+        margin-top: 100px;
+    }
+}
+
+/* Interactions */
+.buttonOne:hover {
+    animation-name: hover;
+    animation-duration: 0.02s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes hover {
+    to {
+      background-image: linear-gradient(rgba(5, 56, 133, 0.8),rgba(34, 99, 184, 0.8));
+    }
+}
