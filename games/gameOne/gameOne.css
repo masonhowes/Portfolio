@@ -42,14 +42,35 @@ body {
     align-items: center;
     font-size: 24px;
     color: white;
-    margin-top: 100px;
+    margin-top: 50px;
+}
+
+.guessContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.userGuess {
+    background-image: linear-gradient(90deg, rgba(7, 22, 41, 0), rgba(5, 56, 133, 0.5), rgba(5, 56, 133, 0.5), rgba(5, 56, 133, 0.5), rgba(7, 22, 41, 0));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 400px;
+}
+
+.guessText {
+    font-size: 28px;
+    color: rgb(0, 217, 255);
 }
 
 .gameContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: -20px;
     height: 500px;
 }
 
@@ -80,11 +101,153 @@ body {
     margin-top: -35px;
 }
 
+.outerInputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .inputGuess {
     background: rgba(34, 99, 184, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 400px;
+    width: 197.5px;
     height: 35px;
+    margin-right: 5px;
+}
+
+.clearGuess {
+    background: rgba(34, 99, 184, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 197.5px;
+    height: 35px;
+}
+
+@keyframes hover {
+    to {
+        background-color: rgba(34, 99, 184, 0.8);
+    }
+}
+
+@keyframes press {
+    from {
+        background-color: rgba(34, 99, 184, 1);
+    }
+    to {
+        background-color: rgba(34, 99, 184, 1);
+    }
+}
+
+.letterBox:hover {
+    animation-name: hover;
+    animation-duration: 0.02s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+.inputGuess:hover {
+    animation-name: hover;
+    animation-duration: 0.02s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+.clearGuess:hover {
+    animation-name: hover;
+    animation-duration: 0.02s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+.inputGuess:active {
+    animation-name: press;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+.clearGuess:active {
+    animation-name: press;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+.letterBox:active {
+    animation-name: press;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.letterBox.selected {
+    outline: 2px solid rgb(255, 255, 255);
+    background-color: rgba(34, 99, 184, 0.8);
+}
+
+@media screen and (max-width: 700px) {
+
+    .topnav {
+        margin: -10px;
+        height: 50px;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+    
+    .themeContainer {
+        font-size: 16px;
+        margin-top: 30px;
+    }
+
+    .guessContainer {
+        margin-top: 20px;
+    }
+    
+    .userGuess {
+        height: 35px;
+        width: 325px;
+    }
+    
+    .guessText {
+        font-size: 20px;
+    }
+    
+    .gameContainer {
+        margin-top: 25px;
+        height: 325px;
+    }
+    
+    .letterConfig {
+        grid-template-columns: repeat(6, .8fr);
+        grid-template-rows: repeat(6, .8fr);
+        width: 325px;
+        height: 325px;
+    }
+    
+    .letterBox {
+        font-size: 20px;
+    }
+    
+    .outerInputsContainer {
+        margin-top: 25px;
+    }
+    
+    .inputGuess {
+        width: 160px;
+    }
+
+    .clearGuess {
+        width: 160px;
+    }
 }
