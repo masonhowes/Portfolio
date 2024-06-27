@@ -135,7 +135,7 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 250px;
     font-size: 12px;
 }
 
@@ -160,12 +160,22 @@ a:link, a:visited {
 }
 
 @media screen and (max-width: 700px) {
-    body {
-        overflow-y: scroll;
+
+    .topnav {
+        margin: -10px;
+        height: 50px;
+    }
+    
+    .logo {
+        height: 50px;
+    }
+    
+    .logo img {
+        height: 50px;
     }
 
     .menu {
-        margin-top: 100px;
+        margin-top: 50px;
     }
 
     .buttonContainer {
@@ -176,15 +186,25 @@ a:link, a:visited {
     
     .buttonOne {
         margin-right: 0px;
+        height: 75px;
+    }
+
+    .buttonTwo {
+        height: 75px;
     }
 
     .buttonThree {
         margin-right: 0px;
         margin-bottom: 12.5px;
+        height: 75px;
+    }
+    
+    .buttonFour {
+        height: 75px;
     }
 
     .attr {
-        margin-top: 100px;
+        margin-top: 50px;
     }
 }
 
