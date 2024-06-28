@@ -86,14 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkGuess(words, total) {
         if (guess.length === 0) return;
 
-        if (words.includes(guess)) {
-            selectedBoxes.forEach(index => {
-                const box = container.children[index];
-                box.classList.remove('selected');
-                box.textContent = '';
-                box.style.pointerEvents = 'none';
-            });
+        selectedBoxes.forEach(index => {
+            const box = container.children[index];
+            box.classList.remove('selected');
+            box.textContent = '';
+            box.style.pointerEvents = 'none';
+        });
 
+        if (words.includes(guess)) {
             numCorrect++;
             if (numCorrect === total) {
                 winCondition();
@@ -145,11 +145,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (themeContainer.textContent === 'You Win!') {
-            themeContainer.textContent = `Theme: ${themeText}`;
+            unWinCondition();
         }
     }
 
     function winCondition() {
         themeContainer.textContent = 'You Win!';
+    }
+
+    function unWinCondition() {
+        themeContainer.textContent = `Theme: ${themeText}`;
     }
 });
