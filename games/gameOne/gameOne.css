@@ -225,6 +225,14 @@ body {
     .clearGuess {
         width: 160px;
     }
+
+    .userEntries {
+        width: 325px;
+    }
+
+    .guessList {
+        width: 325px;
+    }
 }
 
 @keyframes hover {
