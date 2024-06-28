@@ -5,8 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentGuess = document.getElementById('currentGuess');
     const inputGuess = document.getElementById('inputGuess');
     const clearGuess = document.getElementById('clearGuess');
+    const guessList = document.getElementById('guessList');
     let selectedBoxes = [];
     let guess = '';
+    let guesses = [];
+    let originalPositions = {};
+    let numCorrect = 0;
+    let total;
+    let themeText;
 
     // Initialize the grid with empty divs
     for (let i = 0; i < 36; i++) {
@@ -27,8 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             const characters = lines[0].trim().split('');
-            const theme = lines[1].trim();
+            themeText = lines[1].trim();
             const words = lines[2].trim().split(' ');
+            total = parseInt(lines[3].trim(), 10);
 
             if (characters.length !== 36) {
                 throw new Error('The first line of the text file must contain exactly 36 characters');
@@ -44,13 +51,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const letterBoxes = document.querySelectorAll('.letterBox');
             letterBoxes.forEach((box, index) => {
                 box.textContent = characters[index];
+                originalPositions[box.textContent] = originalPositions[box.textContent] || [];
+                originalPositions[box.textContent].push(index);
             });
 
             // Set the theme text
-            themeContainer.textContent = `Today's Theme: ${theme}`;
+            themeContainer.textContent = `Theme: ${themeText}`;
 
             inputGuess.addEventListener('click', function() {
-                checkGuess(words);
+                checkGuess(words, total);
             });
 
             clearGuess.addEventListener('click', function() {
@@ -74,7 +83,9 @@ document.addEventListener('DOMContentLoaded', function() {
         currentGuess.textContent = guess;
     }
 
-    function checkGuess(words) {
+    function checkGuess(words, total) {
+        if (guess.length === 0) return;
+
         if (words.includes(guess)) {
             selectedBoxes.forEach(index => {
                 const box = container.children[index];
@@ -82,12 +93,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 box.textContent = '';
                 box.style.pointerEvents = 'none';
             });
-        } else {
-            selectedBoxes.forEach(index => {
-                const box = container.children[index];
-                box.classList.remove('selected');
-            });
+
+            numCorrect++;
+            if (numCorrect === total) {
+                winCondition();
+            }
         }
+
+        addGuess(guess, selectedBoxes, total);
         selectedBoxes = [];
         guess = '';
         currentGuess.textContent = '';
@@ -102,5 +115,41 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedBoxes = [];
         guess = '';
         currentGuess.textContent = '';
+
+    }
+
+    function addGuess(guess, positions, total) {
+        const guessElement = document.createElement('div');
+        guessElement.classList.add('guessItem');
+        guessElement.textContent = guess;
+        guessElement.addEventListener('click', function() {
+            removeStoredGuess(guess, positions, guessElement, total);
+        });
+        guessList.appendChild(guessElement);
+
+        guesses.push({ guess, positions });
+    }
+
+    function removeStoredGuess(guess, positions, element, total) {
+        positions.forEach(index => {
+            const box = container.children[index];
+            box.textContent = guess.charAt(positions.indexOf(index));
+            box.style.pointerEvents = 'auto';
+        });
+
+        guessList.removeChild(element);
+        guesses = guesses.filter(g => g.guess !== guess);
+
+        if (guesses.includes(guess)) {
+            numCorrect--;
+        }
+
+        if (themeContainer.textContent === 'You Win!') {
+            themeContainer.textContent = `Theme: ${themeText}`;
+        }
+    }
+
+    function winCondition() {
+        themeContainer.textContent = 'You Win!';
     }
 });

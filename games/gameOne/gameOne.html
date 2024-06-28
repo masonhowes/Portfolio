@@ -1,56 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Game 1 - Masonland</title>
-    <link rel="icon" href="../../img/m.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Game 1 - Masonland</title>
+        <link rel="icon" href="../../img/m.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="gameOne.css">
-</head>
-<body>
-    
-    <!-- Navigation Bar -->
-    <div class="topnav" id="homePage">
-        <div class="logo">
-            <a class="active" href="../../index.html">
-                <img src="../../img/m.png">
-            </a>
-        </div>
-    </div>
-
-    <div class="themeContainer">
-        <div class="puzzleTheme">
-            <a class="upperText" id="theme">
-                Today's Theme:
-            </a>
-        </div>
-    </div>
-
-    <div class="guessContainer">
-        <div class="userGuess">
-            <a class="guessText" id="currentGuess">
-                
-            </a>
-        </div>
-    </div>
-
-    <div class="gameContainer">
-        <div class="letterConfig" id="arrayContainer"></div>
-    </div>
-
-    <div class="outerInputsContainer">
-        <div class="outerInputs">
-            <div class="inputGuess" id="inputGuess">
-                Enter Guess
-            </div>
-
-            <div class="clearGuess" id="clearGuess">
-                Clear
+        <link rel="stylesheet" href="gameOne.css">
+    </head>
+    <body>
+        
+        <!-- Navigation Bar -->
+        <div class="topnav" id="homePage">
+            <div class="logo">
+                <a class="active" href="../../index.html">
+                    <img src="../../img/m.png">
+                </a>
             </div>
         </div>
-    </div>
-    
+
+        <div class="themeContainer">
+            <div class="puzzleTheme">
+                <a class="upperText" id="theme">
+                    Theme:
+                </a>
+            </div>
+        </div>
+
+        <div class="guessContainer">
+            <div class="userGuess">
+                <a class="guessText" id="currentGuess">
+                    
+                </a>
+            </div>
+        </div>
+
+        <div class="gameContainer">
+            <div class="letterConfig" id="arrayContainer"></div>
+        </div>
+
+        <div class="outerInputsContainer">
+            <div class="outerInputs">
+                <div class="inputGuess" id="inputGuess">
+                    Enter Guess
+                </div>
+
+                <div class="clearGuess" id="clearGuess">
+                    Clear
+                </div>
+            </div>
+        </div>
+
+        <div class="entriesContainer">
+            <div class="userEntries">
+                <a>
+                    Your Guesses (Tap Guess To Remove)
+                </a>
+            </div>
+            <div class="guessList" id="guessList">
+                <!-- User guesses container -->
+            </div>
+        </div>
+        
+    </body>
     <script src="script.js"></script>
-</body>
 </html>
