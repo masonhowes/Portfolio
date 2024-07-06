@@ -34,6 +34,18 @@
 
     <div class="controls">
         <button id="downloadTranscript">Download Transcript</button>
+        <button class="help" id="help">Info</button>
+    </div>
+
+    <div class="modal" id="helpModal">
+        <div class="modalContent">
+            <p id="helpText">
+                <h2>INFORMATION</h2>
+                This program was originally created in Jupyter Notebook. It leveraged the <a href="https://alphacephei.com/vosk/">VOSK Offline Speech Recognition API</a>, and was programmed in Python.<br><br>I knew porting it to this portfolio site was going to be inconvenient, but felt like an information box + a download would suffice.<br><br>Later, I wanted to give porting the finished program a go, and starting to understand the limitations of existing methods to run python programs on the front-end of websites.<br><br>I did some research, and learned about using the <a href="https://wicg.github.io/speech-api/#speechreco-attributes">Web Speech API</a>. This API solved a lot of the problems that hosting the VOSK API locally had, and was much more accurate due to it using a larger model.<br><br>Browser support for the API isn't perfect, so there may be issues in trying to run this program. Error messages should display if you run into issues.
+                
+            </p>
+            <div class="okButton" id="okButton">OK</div>
+        </div>
     </div>
 
     <script src="SpeechTranscriber.js"></script>

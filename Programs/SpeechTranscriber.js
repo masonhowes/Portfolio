@@ -5,6 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
     const transcriptText = document.getElementById("transcriptText");
     const clearTranscript = document.getElementById("clearTranscript");
 
+    const helpButton = document.getElementById('help');
+    const helpModal = document.getElementById('helpModal');
+    const okButton = document.getElementById('okButton');
+    const modalContent = document.querySelector('.modalContent');
+
     let recognition;
 
     // Check if the browser supports the Web Speech API
@@ -170,4 +175,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Request microphone access on page load
     requestMicrophoneAccess();
+
+    helpButton.addEventListener('click', function() {
+        helpModal.style.display = 'flex';
+    });
+
+    okButton.addEventListener('click', function() {
+        modalContent.style.animationName = 'slideOut';
+        modalContent.style.animationDuration = '0.2s';
+        setTimeout(() => {
+            helpModal.style.display = 'none';
+            modalContent.style.animationName = 'slideIn';
+        }, 200);
+    });
 });
