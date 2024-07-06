@@ -1,60 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <title>Speech Transcripter - Masonland</title>
+    <link rel="icon" href="../../img/m.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Speech Transcription</title>
-    <style>
-        body {
-            background-color: rgb(7, 22, 41);
-            font-family: 'Verdana', sans-serif;
-            color: #ffffff;
-            height: 100%;
-            max-width: 100%;
-            overflow: hidden;
-        }
-        .topnav {
-            background-color: rgba(5, 56, 133, 0.5);
-            display: block;
-            align-content: space-around;
-            margin: -10px;
-            height: 50px;
-            border-bottom: 0px solid rgb(255, 213, 205);
-            filter: drop-shadow(0px 0px 4px rgba(1, 1, 33, 0.202));
-        }
-        .logo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 50px;
-        }
-        .logo img {
-            height: 50px;
-            padding-top: 4px;
-        }
-        .button {
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .success {
-            background-color: #28a745;
-            color: white;
-        }
-        .danger {
-            background-color: #dc3545;
-            color: white;
-        }
-        #transcript {
-            margin-top: 20px;
-            white-space: pre-wrap;
-        }
-    </style>
+    <link rel="stylesheet" href="gameTwo.css">
 </head>
 <body>
+    
+    <!-- Navigation Bar -->
     <div class="topnav" id="homePage">
         <div class="logo">
             <a class="active" href="../../index.html">
@@ -62,77 +17,21 @@
             </a>
         </div>
     </div>
-    <h1>Speech Transcription</h1>
-    <button id="recordButton" class="button success">Record Audio</button>
-    <button id="stopButton" class="button danger" disabled>Stop Recording</button>
-    <div id="transcript"></div>
 
-    <script>
-        const recordButton = document.getElementById('recordButton');
-        const stopButton = document.getElementById('stopButton');
-        const transcriptDiv = document.getElementById('transcript');
-        let recognition;
-        let isRecording = false;
+    <!-- Buttons for recording -->
+    <div class="controls">
+        <button id="recordWidget">Record Audio</button>
+        <button id="stopWidget">Stop Recording</button>
+        <button id="clearTranscript">Clear Text</button>
+    </div>
 
-        if ('webkitSpeechRecognition' in window) {
-            recognition = new webkitSpeechRecognition();
-        } else if ('SpeechRecognition' in window) {
-            recognition = new SpeechRecognition();
-        } else {
-            alert("Your browser does not support Speech Recognition.");
-        }
+    <!-- Section to display the transcribed text -->
+    <div class="transcriptContainer">
+        <div class="transcript">
+            <p id="transcriptText" class="info">Transcribed text will appear here...</p>
+        </div>
+    </div>
 
-        if (recognition) {
-            recognition.continuous = true;
-            recognition.interimResults = true;
-            recognition.lang = 'en-US';
-
-            recognition.onstart = function() {
-                isRecording = true;
-                transcriptDiv.innerText += "Recording Started:\n";
-            };
-
-            recognition.onresult = function(event) {
-                let interimTranscript = '';
-                for (let i = event.resultIndex; i < event.results.length; i++) {
-                    const transcript = event.results[i][0].transcript;
-                    if (event.results[i].isFinal) {
-                        transcriptDiv.innerText += transcript + "\n";
-                    } else {
-                        interimTranscript += transcript;
-                    }
-                }
-            };
-
-            recognition.onerror = function(event) {
-                console.error("Speech recognition error:", event.error);
-            };
-
-            recognition.onend = function() {
-                if (isRecording) {
-                    recognition.start();
-                } else {
-                    transcriptDiv.innerText += "Recording Finished\n";
-                }
-            };
-
-            recordButton.addEventListener('click', function() {
-                if (!isRecording) {
-                    recognition.start();
-                    recordButton.disabled = true;
-                    stopButton.disabled = false;
-                }
-            });
-
-            stopButton.addEventListener('click', function() {
-                if (isRecording) {
-                    isRecording = false;
-                    recognition.stop();
-                    recordButton.disabled = false;
-                    stopButton.disabled = true;
-                }
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
