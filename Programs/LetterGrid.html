@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LetterGrid - Masonland</title>
+        <link rel="icon" href="../img/m.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="LetterGrid.css">
+    </head>
+    <body>
+        
+        <!-- Navigation Bar -->
+        <div class="topnav" id="homePage">
+            <div class="logo">
+                <a class="active" href="../index.html">
+                    <img src="../img/m.png">
+                </a>
+            </div>
+        </div>
+
+        <div class="themeContainer">
+            <div class="puzzleTheme">
+                <a class="upperText" id="theme">
+                    Theme:
+                </a>
+            </div>
+
+            <div class="difficulty", id="difficulty">
+                <a class="rating" id="rating">
+                    RATING
+                </a>
+            </div>
+
+            <div class="hamburgerMenu" id="hamburgerMenu">
+                &#9776;
+            </div>
+
+            
+        </div>
+
+        <div class="dropdownContentContainer">
+            <div class="dropdownContent" id="dropdownContent">
+                <!-- Example themes, you can add more -->
+                <div class="themeOption" data-theme="animals.txt">Animals</div>
+                <div class="themeOption" data-theme="fruits.txt">Fruits</div>
+                <div class="themeOption" data-theme="countries.txt">Countries</div>
+                <div class="themeOption" data-theme="elements.txt">Elements</div>
+                <div class="themeOption" data-theme="companies.txt">Companies</div>
+            </div> 
+        </div>
+        
+
+        <div class="guessContainer">
+            <div class="userGuess">
+                <a class="guessText" id="currentGuess">
+                    
+                </a>
+            </div>
+        </div>
+
+        <div class="gameContainer">
+            <div class="letterConfig" id="arrayContainer"></div>
+        </div>
+
+        <div class="outerInputsContainer">
+            <div class="outerInputs">
+                <div class="inputGuess" id="inputGuess">
+                    Enter Guess
+                </div>
+
+                <div class="clearGuess" id="clearGuess">
+                    Clear
+                </div>
+            </div>
+        </div>
+
+        <div class="entriesContainer">
+            <div class="userEntries">
+                <a>
+                    Your Guesses (Tap Guess To Remove)
+                </a>
+
+                <div class="helpContainer">
+                    <a class="help" id="help">
+                        ?
+                    </a>
+                </div>
+            </div>
+
+            
+
+            <div class="modal" id="helpModal">
+                <div class="modalContent">
+                    <p id="helpText">
+                        <h2>HOW TO PLAY</h2>
+
+                        Clear the grid of all letters by submitting guesses related to the theme<br><br>
+
+                        Successful attempts use every letter in the grid and don't repeat any words<br><br>
+
+                        Difficulty scales according to grid size and popularity of the theme<br><br>
+
+                        To make a guess, click letters in the order they appear in the word you are guessing. You can only use a cell of the grid once<br><br>
+
+                        Press 'Enter Guess' to submit your answer. In the 'Your Guesses' menu, you can click a previous guess to remove it<br><br>
+
+                        If you discover every word, you win!
+
+                        
+                    </p>
+                    <div class="okButton" id="okButton">OK</div>
+                </div>
+            </div>
+
+            <div class="guessList" id="guessList">
+                <!-- User guesses container -->
+            </div>
+        </div>
+        
+    </body>
+    <script src="LetterGrid.js"></script>
+</html>
