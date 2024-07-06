@@ -214,11 +214,11 @@ body {
     
     .themeContainer {
         font-size: 16px;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 
     .guessContainer {
-        margin-top: 20px;
+        margin-top: 5px;
     }
     
     .userGuess {
@@ -231,7 +231,7 @@ body {
     }
     
     .gameContainer {
-        margin-top: 25px;
+        margin-top: 10px;
         height: 325px;
     }
     
@@ -247,7 +247,7 @@ body {
     }
     
     .outerInputsContainer {
-        margin-top: 25px;
+        margin-top: 10px;
     }
     
     .inputGuess {
@@ -272,6 +272,13 @@ body {
 
     .dropdownContent {
         width: 325px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 }
 

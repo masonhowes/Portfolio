@@ -61,7 +61,7 @@ a:link, a:visited {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 450px;
+    width: 650px;
 
 }
 
@@ -70,7 +70,7 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 300px;
     height: 100px;
     font-size: 24px;
     border-radius: 25px;
@@ -89,18 +89,27 @@ a:link, a:visited {
 }
 
 .buttonTwo {
-    background-color: rgba(5, 56, 133, 0.3);
+    background-image: linear-gradient(rgba(5, 56, 133, 0.5), rgba(34, 99, 184, 0.5));
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 300px;
     height: 100px;
     font-size: 24px;
     border-radius: 25px;
+    text-decoration: none;
 
     margin-bottom: 12.5px;
 
     color: rgb(7, 22, 41);
+}
+
+.buttonTwo a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%
 }
 
 .buttonThree {
@@ -108,12 +117,14 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 300px;
     height: 100px;
     font-size: 24px;
     border-radius: 25px;
+    text-decoration: none;
 
     margin-right: 12.5px;
+    margin-bottom: 12.5px;
 
     color: rgb(7, 22, 41);
 }
@@ -123,7 +134,38 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
+    width: 300px;
+    height: 100px;
+    font-size: 24px;
+    border-radius: 25px;
+    text-decoration: none;
+
+    margin-bottom: 12.5px;
+
+    color: rgb(7, 22, 41);
+}
+
+.buttonFive {
+    background-color: rgba(5, 56, 133, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 100px;
+    font-size: 24px;
+    border-radius: 25px;
+
+    margin-right: 12.5px;
+
+    color: rgb(7, 22, 41);
+}
+
+.buttonSix {
+    background-color: rgba(5, 56, 133, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
     height: 100px;
     font-size: 24px;
     border-radius: 25px;
@@ -135,7 +177,7 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 250px;
+    margin-top: 175px;
     font-size: 12px;
 }
 
@@ -181,7 +223,7 @@ a:link, a:visited {
     .buttonContainer {
         display: flex;
         justify-content: center;
-        width: 200px;
+        width: 300px;
     }
     
     .buttonOne {
@@ -203,6 +245,14 @@ a:link, a:visited {
         height: 75px;
     }
 
+    .buttonFive {
+        height: 75px;
+    }
+
+    .buttonSix {
+        height: 75px;
+    }
+
     .attr {
         margin-top: 50px;
     }
@@ -210,6 +260,14 @@ a:link, a:visited {
 
 /* Interactions */
 .buttonOne:hover {
+    animation-name: hover;
+    animation-duration: 0.02s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+.buttonTwo:hover {
     animation-name: hover;
     animation-duration: 0.02s;
     animation-fill-mode: forwards;
