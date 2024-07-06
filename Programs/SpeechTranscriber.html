@@ -5,7 +5,7 @@
     <link rel="icon" href="../img/m.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="SpeechTranscripter.css">
+    <link rel="stylesheet" href="SpeechTranscriber.css">
 </head>
 <body>
     
@@ -20,8 +20,8 @@
 
     <!-- Buttons for recording -->
     <div class="controls">
-        <button id="recordWidget">Record Audio</button>
-        <button id="stopWidget">Stop Recording</button>
+        <button class="recordAudio" id="recordWidget">Record Audio</button>
+        
         <button id="clearTranscript">Clear Text</button>
     </div>
 
@@ -32,6 +32,10 @@
         </div>
     </div>
 
-    <script src="SpeechTranscripter.js"></script>
+    <div class="controls">
+        <button id="downloadTranscript">Download Transcript</button>
+    </div>
+
+    <script src="SpeechTranscriber.js"></script>
 </body>
 </html>

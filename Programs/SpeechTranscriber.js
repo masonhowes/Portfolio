@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     const recordWidget = document.getElementById("recordWidget");
-    const stopWidget = document.getElementById("stopWidget");
-    const transcriptContainer = document.querySelector(".transcriptContainer");
+    const downloadTranscript = document.getElementById("downloadTranscript");
+    const transcriptWidget = document.querySelector(".transcript");
     const transcriptText = document.getElementById("transcriptText");
     const clearTranscript = document.getElementById("clearTranscript");
 
     let recognition;
-    let userScrolled = false;
 
     // Check if the browser supports the Web Speech API
     function checkWebSpeechAPI() {
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
         Google Chrome, Safari, Opera, Microsoft Edge, Samsung Internet,
         QQ browser, Baidu Browser, UC Browser (Android).`;
         recordWidget.disabled = true;
-        stopWidget.disabled = true;
         return;
     }
 
@@ -50,21 +48,32 @@ document.addEventListener("DOMContentLoaded", function() {
     recordWidget.addEventListener("click", function() {
         if (!isRecording) {
             recognition.start();
-            isRecording = true;
-            transcriptText.innerHTML += "<p class='info'>Recording started:</p>";
-            recordWidget.innerHTML = "Recording...";
+            transcriptText.innerHTML += "<p class='info'>Recording Started</p>";
+            recordWidget.innerHTML = "Stop Recording";
+            recordWidget.classList.add("recording");
             scrollToBottom(); // Scroll to the bottom when recording starts
-        }
-    });
-
-    stopWidget.addEventListener("click", function() {
-        if (isRecording) {
+        } else {
             recognition.stop();
-            isRecording = false;
-            transcriptText.innerHTML += "<p class='info'>Recording stopped.</p>";
+            transcriptText.innerHTML += "<p class='info'>Recording Stopped</p>";
             recordWidget.innerHTML = "Record Audio";
+            recordWidget.classList.remove("recording");
             scrollToBottom(); // Scroll to the bottom when recording stops
         }
+
+        isRecording = !isRecording;
+    });
+
+    downloadTranscript.addEventListener("click", function() {
+        const text = transcriptText.innerText;
+        const blob = new Blob([text], { type: 'text/plain' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'transcript.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
     });
 
     clearTranscript.addEventListener("click", function() {
@@ -98,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
             paragraph.innerText = finalTranscript;
             transcriptText.appendChild(paragraph);
             finalTranscript = ''; // Reset final transcript after appending
-            if (isUserAtBottom()) {
+            if (!isUserAtBottom()) {
                 scrollToBottom(); // Scroll to the bottom after adding new text if the user is at the bottom
             }
         }
@@ -131,16 +140,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Scroll to the bottom of the transcript container
     function scrollToBottom() {
-        transcriptContainer.scrollTop = transcriptContainer.scrollHeight;
+        transcriptWidget.scrollTop = transcriptWidget.scrollHeight;
     }
 
     // Check if the user is at the bottom of the transcript container
     function isUserAtBottom() {
-        return transcriptContainer.scrollHeight - transcriptContainer.scrollTop <= transcriptContainer.clientHeight + 20;
+        return transcriptWidget.scrollHeight - transcriptWidget.scrollTop <= transcriptWidget.clientHeight + 20;
     }
 
     // Detect when the user manually scrolls
-    transcriptContainer.addEventListener('scroll', function() {
+    transcriptWidget.addEventListener('scroll', function() {
         userScrolled = !isUserAtBottom();
     });
 
@@ -153,7 +162,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.error("Microphone access denied.", error);
             transcriptText.innerHTML += `<p class='info'>Microphone access denied. Please allow microphone access and try again.</p>`;
             recordWidget.disabled = true;
-            stopWidget.disabled = true;
         }
     }
 
