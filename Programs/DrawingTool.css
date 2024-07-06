@@ -1,0 +1,495 @@
+body, h1, .controls, button, canvas {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: none;
+}
+
+canvas {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+}
+
+head, body {
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(91, 146, 218);
+    font-family: 'Verdana', sans-serif;
+    color: #ffffff;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 75px;
+    margin-bottom: 20px;
+}
+
+/* Disable Default Hyperlink Appearance */
+a:link {
+    color: #ffffff;
+}
+
+a:visited {
+    color: #ffffff;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+/* Navigation Bar */
+.topnav {
+    background-color: rgb(5, 56, 133);
+    display: block;
+    align-content: space-around;
+    margin: -10px;
+    width: 110%;
+    height: 50px;
+    border-bottom: 0px solid rgb(255, 213, 205);
+    filter: drop-shadow(0px 0px 4px rgba(1, 1, 33, 0.202));
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.logo img {
+    height: 50px;
+    padding-top: 4px;
+}
+
+.upper-text {
+    display: flex;
+    background-color: rgba(3, 32, 77, 0.8);
+    height: 50px;
+    width: 500px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+h1 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 504px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+    background-color: rgba(3, 32, 77, 0.5);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#colorSliderContainer {
+    width: 200px;
+    height: 30px;
+    background: linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red);
+    border: 1px solid #000;
+    cursor: pointer;
+    position: relative;
+}
+
+.sizeButton {
+    padding: 5px;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+canvas {
+    border: 2px solid rgb(1, 53, 68);
+}
+
+.cursor-circle {
+    position: absolute;
+    border: 1px solid #000;
+    border-radius: 50%;
+    pointer-events: none;
+    display: block;
+}
+
+.color-picker-container {
+    display: flex;
+    gap: 5px;
+}
+
+.current-color {
+    width: 30px;
+    height: 120px;
+    border: 2px solid rgba(3, 32, 77, 0.8);
+    background-color: #000000;
+    border-radius: 10px;
+}
+
+.sliders {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.slider {
+    position: relative;
+    width: 200px;
+    height: 30px;
+    border: 2px solid rgba(3, 32, 77, 0.8);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.slider::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: black;
+    transform: translateX(-50%);
+}
+
+.action-picker-container {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 120px;
+    height: 120px;
+}
+
+@keyframes outlined {
+    to {
+      background-color: white;
+      transform: scale(1.02);
+      filter: drop-shadow(0px 0px 5px rgba(1, 1, 33, 0.202));
+  
+      /* Achieves border w/ rounded interior & exterior*/
+      box-shadow: 0px 0px 0px 1px rgba(3, 32, 77, 0.8),
+        1px 1px 8px 0 rgba(0,0,0,0.4);
+    }
+  }
+
+.undo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(142, 242, 255);
+    width: 53px;
+    height: 53px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    border-radius: 15px;
+    border: 2px solid rgba(3, 32, 77, 1);
+}
+
+.undo:hover {
+    cursor: pointer;
+    animation-name: outlined;
+    animation-duration: 0.05s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.redo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(142, 242, 255);
+    width: 53px;
+    height: 53px;
+    margin-bottom: 4px;
+    border-radius: 15px;
+    border: 2px solid rgba(3, 32, 77, 1);
+}
+
+.redo:hover {
+    cursor: pointer;
+    animation-name: outlined;
+    animation-duration: 0.05s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.erase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(142, 242, 255);
+    width: 53px;
+    height: 53px;
+    margin-right: 4px;
+    border-radius: 15px;
+    border: 2px solid rgba(3, 32, 77, 1);
+}
+
+.erase:hover {
+    cursor: pointer;
+    animation-name: outlined;
+    animation-duration: 0.05s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.clear {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(142, 242, 255);
+    width: 53px;
+    height: 53px;
+    border-radius: 15px;
+    border: 2px solid rgba(3, 32, 77, 1);
+}
+
+.clear:hover {
+    cursor: pointer;
+    animation-name: outlined;
+    animation-duration: 0.05s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.sizePickerContainer {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 75px;
+    margin-top: -15px;
+}
+
+.sizeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    width: 45px;
+    height: 45px;
+    margin-right: 4px;
+    border-radius: 15px;
+    border: 2px solid rgba(3, 32, 77, 1);
+}
+
+.sizeButton:hover {
+    cursor: pointer;
+    animation-name: outlined;
+    animation-duration: 0.05s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.flashing {
+    background-color: #ddd; /* Light grey color */
+    transition: background-color 0.2s ease; /* Smooth transition */
+}
+
+
+.hamburger-menu {
+    display: hidden;
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    padding: 20px;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.hamburger-menu {
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.toggle-buttons {
+    display: none !important;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.toggle-buttons div {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.toggle-buttons .current-color {
+    display: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.toggle-buttons .current-size {
+    display: none;
+    width: 24px;
+    height: 24px;
+}
+
+.disable {
+    display: none;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+
+    canvas {
+        width: 85%;
+        height: auto;
+    }
+
+    .bottom {
+        width: 86%;
+        flex-direction: row-reverse;
+    }
+
+    .upper-text {
+        width: 85%;
+    }
+
+    .toggle-buttons {
+        display: flex !important;
+    }
+
+    .toggle-buttons .current-color {
+        display:flex;
+    }
+
+    .toggle-buttons .current-size {
+        display:flex;
+    }
+
+    .hamburger-menu {
+        display: none;
+        margin-left: -100px;
+        margin-bottom: 250px;
+        padding-bottom: 20px;
+        height: auto;
+        width: auto;
+    }
+
+    .hamburger-menu .sliders {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        height: auto;
+    }
+    
+    .sizePickerContainer-menu {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 25px;
+        padding-left: 5px;
+        width: 120px;
+    }
+
+    .sizePickerContainer-menu .sizeButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        margin-bottom: 5px;
+    }
+
+    .color-picker-container,
+    .sizePickerContainer {
+        display: none;
+    }
+
+    .color-picker-container-menu,
+    .sizePickerContainer-menu {
+        display: flex !important;
+    }
+
+    .close-btn {
+        display: flex;
+        position: absolute;
+    }
+
+    .action-picker-container {
+        align-items: normal;
+        width: 240px;
+        height: fit-content;
+    } 
+
+    .undo {
+        margin-bottom: 0px;
+        margin-right: 2px;
+    }
+
+    .redo {
+        margin-bottom: 0px;
+        margin-right: 2px;
+    }
+
+    .erase {
+        margin-right: 2px;
+    }
+
+    
+}

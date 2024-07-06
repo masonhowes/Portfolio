@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drawing Tool - Masonland</title>
+        <link rel="icon" href="../img/m.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="DrawingTool.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <div class="topnav" id="homePage">
+            <div class="logo">
+                <a class="active" href="../index.html">
+                    <img src="../img/m.png">
+                </a>
+            </div>
+        </div>
+
+        <div class="upper-text">
+            <a>
+                Have fun drawing!
+            </a>
+        </div>
+        
+        <canvas id="drawingCanvas"></canvas>
+
+        <div class="bottom">
+
+            <div class="controls">
+    
+                <div class="color-picker-container">
+                    <div class="current-color" id="colorDisplay"></div>
+                    <div class="sliders">
+                        <canvas class="slider" id="hueSlider"></canvas>
+                        <canvas class="slider" id="brightnessSlider"></canvas>
+                        <canvas class="slider" id="saturationSlider"></canvas>
+                    </div>
+                </div>
+        
+                <div class="action-picker-container">
+                    <div class="undo" id="undoButton"><img src="undo.svg"></div>
+                    <div class="redo" id="redoButton"><img src="redo.svg"></div>
+                    <div class="erase" id="eraseButton"><img src="erase.svg"></div>
+                    <div class="clear" id="clearCanvasButton"><img src="delete.svg"></div>   
+                </div>
+                
+            </div>
+    
+            <div class="sizePickerContainer" id="sizePickerContainer">
+                <div class="sizeButton" data-size="2"><img src="size.svg" width="8"></div>
+                <div class="sizeButton" data-size="4"><img src="size.svg" width="12"></div>
+                <div class="sizeButton" data-size="8"><img src="size.svg" width="16"></div>
+                <div class="sizeButton" data-size="16"><img src="size.svg" width="24"></div>
+                <div class="sizeButton" data-size="32"><img src="size.svg" width="32"></div>
+                <div class="sizeButton" data-size="64"><img src="size.svg" width="64"></div>
+            </div>
+    
+            <div class="toggle-buttons">
+                <div class="toggle-color-picker" id="toggleColorPicker">
+                    <div class="current-color" id="currentColor"></div>
+                </div>
+                <div class="toggle-size-picker" id="toggleSizePicker">
+                    <svg class="current-size" id="currentSize" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" /></svg>
+                </div>
+                
+            </div>
+    
+            <div class="hamburger-menu" id="colorPickerMenu">
+                <button class="close-btn" id="closeColorPickerMenu">X</button>
+                <div class="color-picker-container-menu">
+                    <div class="sliders">
+                        <canvas class="slider" id="hueSliderSmall"></canvas>
+                        <canvas class="slider" id="brightnessSliderSmall"></canvas>
+                        <canvas class="slider" id="saturationSliderSmall"></canvas>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="hamburger-menu" id="sizePickerMenu">
+                <button class="close-btn" id="closeSizePickerMenu">X</button>
+                <div class="sizePickerContainer-menu">
+                    <div class="sizeButton" data-size="2"><img src="size.svg" width="8"></div>
+                    <div class="sizeButton" data-size="4"><img src="size.svg" width="12"></div>
+                    <div class="sizeButton" data-size="8"><img src="size.svg" width="16"></div>
+                    <div class="sizeButton" data-size="16"><img src="size.svg" width="24"></div>
+                    <div class="sizeButton" data-size="32"><img src="size.svg" width="32"></div>
+                    <div class="sizeButton" data-size="64"><img src="size.svg" width="64"></div>
+                </div>
+            </div>
+        </div>
+        <script src="DrawingToolMain.js"></script>
+        <script src="DrawingTool.js"></script>
+        <script src="DrawingToolResize.js"></script>
+        <script src="DrawingToolControllerConcat.js"></script>
+    </body>
+</html>
