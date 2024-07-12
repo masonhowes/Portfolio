@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Masonland</title>
+        <title>Mason Howes Portfolio</title>
         <link rel="icon" href="img/m.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,24 +18,54 @@
                 </a>
             </div>
         </div>
+        <!--
+            About Switcher
+            <div class="aboutThese">
+                <img class="aboutButton" id="aboutButton" src="img/more.png" onclick="aboutMode()">
+            </div>
+
+            Filter Bar
+            <div class="filterContainer">
+                <div class="filterText">
+                    Filters:
+                </div>
+                <div class="filterBar">
+                    <a class="filter" id="ml">Machine Learning</a>
+                    <a class="filter" id="febe">Frontend/Backend</a>
+                    <a class="filter" id="sql">SQL</a>
+                    <a class="filter" id="js">JavaScript</a>
+                    <a class="filter" id="py">Python</a>
+                    <a class="filter" id="gis">GIS</a>
+                </div>
+            </div>
+        -->
+        
 
         <!-- Selectors -->
         <div class="menu">
             <div class="buttonContainer">
-                <div class="buttonOne">
-                    <a href="Programs/LetterGrid.html">LetterGrid</a>
+                <div class="buttonOne" id="buttonOne" onclick="navigateToPageOne()">
+                    <div class="textContainer" id="textContainerOne">
+                        <a href="Programs/LetterGrid.html">LetterGrid</a>
+                    </div>
                 </div>
 
-                <div class="buttonTwo">
-                    <a href="Programs/SpeechTranscriber.html">Speech Transcriber</a>
+                <div class="buttonTwo" onclick="navigateToPageTwo()">
+                    <div class="textContainer">
+                        <a href="Programs/SpeechTranscriber.html">Speech Transcriber</a>
+                    </div>
                 </div>
 
-                <div class="buttonThree">
-                    <a href="https://mhowes-participatory-map-c289b6995dca.herokuapp.com/">Participatory Mapping</a>
+                <div class="buttonThree" onclick="navigateToPageThree()">
+                    <div class="textContainer">
+                        <a href="https://mhowes-participatory-map-c289b6995dca.herokuapp.com/">Participatory Mapping</a>
+                    </div>
                 </div>
 
-                <div class="buttonFour">
-                    <a href="Programs/DrawingTool.html">Drawing Tool</a>
+                <div class="buttonFour" onclick="navigateToPageFour()">
+                    <div class="textContainer">
+                        <a href="Programs/DrawingTool.html">Drawing Tool</a>
+                    </div>
                 </div>
 
                 <div class="buttonFive">
@@ -72,9 +102,32 @@
         </div>
 
         
+        <script src="animationFixer.js"></script>
+        <script>
+            let isAbout = false;
+            /* I know this is scuffed, will change when more than just a couple buttons */
+            function navigateToPageOne() {
+                window.location.href = 'Programs/LetterGrid.html';
+            }
+
+            function navigateToPageTwo() {
+                window.location.href = 'Programs/SpeechTranscriber.html';
+            }
+
+            function navigateToPageThree() {
+                window.location.href = 'https://mhowes-participatory-map-c289b6995dca.herokuapp.com/';
+            }
+
+            function navigateToPageFour() {
+                window.location.href = 'Programs/DrawingTool.html';
+            }
+
+            function aboutMode() {
+                const aboutButton = document.getElementById('aboutButton');
+                isAbout = !isAbout;
+                aboutButton.src = isAbout ? 'img/less.png' : 'img/more.png';
+
+            }
+        </script>
     </body>
-
-    <script>
-
-    </script>
 </html>

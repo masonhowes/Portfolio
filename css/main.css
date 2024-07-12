@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-color: rgb(7, 22, 41);
+    background-color: rgb(0, 21, 49);
     font-family: 'Verdana', sans-serif;
     color: #ffffff;
     height: 100%;
@@ -49,29 +49,94 @@ a:link, a:visited {
     padding-top: 4px;
 }
 
+/* Page Editors */
+.aboutThese {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutButton {
+    background-color: rgb(18, 79, 158);
+    height: 40px;
+    border-radius: 100px;
+    padding: 3px;
+    margin-top: 50px;
+}
+
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.filterBar {
+    display: flex;
+    justify-content: center;
+    padding-left: 3px;
+}
+
+.filter {
+    background-color: rgba(30, 93, 175, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4px;
+    border-radius: 3px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: rgba(96, 165, 255, 0.8)
+}
+
+
 /* Main Menu */
 .menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 75px; /*15*/
+    padding-left: 12px;
 }
 
 .buttonContainer {
+    background-color: rgb(0, 18, 41);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 650px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
 
+.textContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(71, 114, 170, 0.3);
+    backdrop-filter: blur(5px);
+    width: 100%;
+    height: 33%;
+    margin-top: 45%;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    transition: height 0.3s ease, margin-top 0.3s ease;
 }
 
 .buttonOne {
-    background-image: linear-gradient(rgba(5, 56, 133, 0.5), rgba(34, 99, 184, 0.5));
+    background-image: linear-gradient(90deg, rgba(5, 56, 133, 0.5), rgba(18, 79, 158, 0.5)), url('../img/lettergrid.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 12.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 100px;
+    height: 200px;
     font-size: 24px;
     border-radius: 25px;
     text-decoration: none;
@@ -85,16 +150,19 @@ a:link, a:visited {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 
 .buttonTwo {
-    background-image: linear-gradient(rgba(5, 56, 133, 0.5), rgba(34, 99, 184, 0.5));
+    background-image: linear-gradient(90deg, rgba(18, 79, 158, 0.5), rgba(51, 119, 209, 0.5)), url('../img/speechtranscriber.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 12.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 100px;
+    height: 200px;
     font-size: 24px;
     border-radius: 25px;
     text-decoration: none;
@@ -113,12 +181,15 @@ a:link, a:visited {
 }
 
 .buttonThree {
-    background-image: linear-gradient(rgba(5, 56, 133, 0.5), rgba(34, 99, 184, 0.5));
+    background-image: linear-gradient(90deg, rgba(5, 56, 133, 0.5), rgba(18, 79, 158, 0.5)), url('../img/participatorymapping.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 12.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 100px;
+    height: 200px;
     font-size: 24px;
     border-radius: 25px;
     text-decoration: none;
@@ -138,12 +209,15 @@ a:link, a:visited {
 }
 
 .buttonFour {
-    background-image: linear-gradient(rgba(5, 56, 133, 0.5), rgba(34, 99, 184, 0.5));
+    background-image: linear-gradient(90deg, rgba(18, 79, 158, 0.5), rgba(51, 119, 209, 0.5)), url(../img/stylus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 300px;
-    height: 100px;
+    height: 200px;
     font-size: 24px;
     border-radius: 25px;
     text-decoration: none;
@@ -194,7 +268,7 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 175px;
+    margin-top: 25px;
     font-size: 12px;
 }
 
@@ -241,25 +315,27 @@ a:link, a:visited {
         display: flex;
         justify-content: center;
         width: 300px;
+        padding-left: 15px;
+        padding-right: 3px;
     }
     
     .buttonOne {
         margin-right: 0px;
-        height: 75px;
+        height: 200px;
     }
 
     .buttonTwo {
-        height: 75px;
+        height: 200px;
     }
 
     .buttonThree {
         margin-right: 0px;
         margin-bottom: 12.5px;
-        height: 75px;
+        height: 200px;
     }
     
     .buttonFour {
-        height: 75px;
+        height: 200px;
     }
 
     .buttonFive {
@@ -278,41 +354,235 @@ a:link, a:visited {
 }
 
 /* Interactions */
+
+/* About Button */
+.aboutButton:hover {
+    cursor: pointer;
+    animation-name: aboutHover;
+    animation-duration: 0.03s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.aboutButton:hover .aboutThese {
+    animation-name: aboutHoverContainer;
+    animation-duration: 0.03s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+/* LetterGrid */
 .buttonOne:hover {
+    cursor: pointer;
+    animation-name: backgroundRepos;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonOne:hover .textContainer {
     animation-name: hover;
-    animation-duration: 0.02s;
+    animation-duration: 0.1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
     cursor: pointer;
 }
 
+.buttonOne .textContainer{
+    animation-name: shrink;
+    animation-duration: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonOne {
+    animation-name: backgroundPos;
+    animation-duration: 0.0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+/* Speech Transcriber */
 .buttonTwo:hover {
+    cursor: pointer;
+    animation-name: backgroundRepos;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonTwo:hover .textContainer {
     animation-name: hover;
-    animation-duration: 0.02s;
+    animation-duration: 0.1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
     cursor: pointer;
 }
 
+.buttonTwo .textContainer{
+    animation-name: shrink;
+    animation-duration: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonTwo {
+    animation-name: backgroundPos;
+    animation-duration: 0.0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+/* Participatory Mapping */
 .buttonThree:hover {
+    cursor: pointer;
+    animation-name: backgroundRepos;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonThree:hover .textContainer {
     animation-name: hover;
-    animation-duration: 0.02s;
+    animation-duration: 0.1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
     cursor: pointer;
 }
 
+.buttonThree .textContainer{
+    animation-name: shrink;
+    animation-duration: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonThree {
+    animation-name: backgroundPos;
+    animation-duration: 0.0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+/* Drawing Tool */
 .buttonFour:hover {
+    cursor: pointer;
+    animation-name: backgroundRepos;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonFour:hover .textContainer {
     animation-name: hover;
-    animation-duration: 0.02s;
+    animation-duration: 0.1s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-in;
     cursor: pointer;
+}
+
+.buttonFour .textContainer{
+    animation-name: shrink;
+    animation-duration: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonFour {
+    animation-name: backgroundPos;
+    animation-duration: 0.0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
 }
 
 /* Animations */
 @keyframes hover {
-    to {
-      background-image: linear-gradient(rgba(5, 56, 133, 0.8),rgba(34, 99, 184, 0.8));
+    from {
+        height: 33%;
+        margin-top: 45%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
     }
+    to {
+        height: 100%;
+        margin-top: 0%;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+}
+
+@keyframes shrink {
+    from {
+        height: 66%;
+        margin-top: 22.5%;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+    }
+
+    to {
+        height: 33%;
+        margin-top: 45%;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+}
+
+@keyframes backgroundRepos {
+    from {
+        background-position-y: 12.5%;
+    }
+    to {
+        background-position-y: 50%;
+    }
+}
+
+@keyframes backgroundPos {
+    from {
+        background-position-y: 50%;
+    }
+    to {
+        background-position-y: 12.5%;
+    }
+}
+
+@keyframes aboutHover {
+    to {
+        padding: 6px;
+        margin-top: 47px;
+        margin-bottom: -3px;
+    }
+}
+
+/* Scrollbar Styling */
+.buttonContainer::-webkit-scrollbar {
+    width: 12px;
+}
+
+.buttonContainer::-webkit-scrollbar-track {
+    background: #001229;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.buttonContainer::-webkit-scrollbar-thumb {
+    background: rgba(71, 114, 170, 0.6);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.buttonContainer::-webkit-scrollbar-thumb:hover {
+    background: rgba(71, 114, 170, 0.3);
+    cursor: pointer;
+}
+
+/* Firefox Support*/
+.custom-scrollbar {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #4772AA #001229; /* Color of the thumb and track */
+}
+
+/* Edge Support */
+@-ms-viewport {
+    scrollbar-color: #4772AA #001229;
+    scrollbar-width: thin;
 }

@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let isRecording = false;
     let finalTranscript = '';
+    let interimParagraph = document.createElement('p');
 
     recordWidget.addEventListener("click", function() {
         if (!isRecording) {
@@ -96,25 +97,45 @@ document.addEventListener("DOMContentLoaded", function() {
         let interimTranscript = '';
 
         for (let i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-                finalTranscript += event.results[i][0].transcript + ' ';
-            } else {
+            if (!event.results[i].isFinal) {
                 interimTranscript += event.results[i][0].transcript + ' ';
+            } else {
+                finalTranscript += event.results[i][0].transcript + ' ';
             }
         }
 
-        // Process the final transcript with punctuation
-        finalTranscript = processWithPunctuation(finalTranscript.trim());
+        // Display interim results in real-time
+        interimParagraph.classList.add('interim');
+        interimParagraph.innerText = interimTranscript;
 
-        // Append only if the final transcript is not empty and different from the last one
+        // Append interim paragraph if it's not already present
+        if (!document.querySelector('.interim')) {
+            transcriptText.appendChild(interimParagraph);
+        }
+
+        // Update the interim paragraph if it's already present
+        else {
+            document.querySelector('.interim').innerText = interimTranscript;
+        }
+
+        // Display final transcript
         if (finalTranscript) {
-            const paragraph = document.createElement('p');
-            paragraph.innerText = finalTranscript;
-            transcriptText.appendChild(paragraph);
+            finalTranscript = processWithPunctuation(finalTranscript.trim());
+            const finalParagraph = document.createElement('p');
+            finalParagraph.innerText = finalTranscript;
+            transcriptText.appendChild(finalParagraph);
             finalTranscript = ''; // Reset final transcript after appending
-            if (!isUserAtBottom()) {
-                scrollToBottom(); // Scroll to the bottom after adding new text if the user is at the bottom
+
+            // Remove interim paragraph after appending final transcript
+            if (interimParagraph) {
+                interimParagraph.remove();
+                interimParagraph = document.createElement('p');
+                interimParagraph.classList.add('interim');
             }
+        }
+
+        if (!isUserAtBottom()) {
+            scrollToBottom(); // Scroll to the bottom after adding new text if the user is at the bottom
         }
     };
 
@@ -129,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    // Basic punctuation insertion logic
+    // Basic punctuation insertion logic (For some reason only edge listens to this)
     function processWithPunctuation(text) {
         // Replace pauses (commas) and stops (periods)
         text = text.replace(/\b(comma|pause)\b/gi, ',');
