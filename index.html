@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        
         <!-- Navigation Bar -->
         <div class="topnav" id="homePage">
             <div class="logo">
@@ -18,28 +17,34 @@
                 </a>
             </div>
         </div>
-        <!--
-            About Switcher
-            <div class="aboutThese">
-                <img class="aboutButton" id="aboutButton" src="img/more.png" onclick="aboutMode()">
-            </div>
 
-            Filter Bar
-            <div class="filterContainer">
-                <div class="filterText">
-                    Filters:
-                </div>
-                <div class="filterBar">
-                    <a class="filter" id="ml">Machine Learning</a>
-                    <a class="filter" id="febe">Frontend/Backend</a>
-                    <a class="filter" id="sql">SQL</a>
-                    <a class="filter" id="js">JavaScript</a>
-                    <a class="filter" id="py">Python</a>
-                    <a class="filter" id="gis">GIS</a>
+        <!-- About Switcher -->
+        <div class="testButtonContainer">
+            <div class="testButtonGlow">
+                <div class="testButtonBlurFilter">
+                    <div class="testButtonBorder"></div>
                 </div>
             </div>
+            <div class="aboutPortfolio" id="help">About Mason's Portfolio</div>
+        </div>
+
+        <!-- Filter Bar -->
+        <!--
+        <div class="filterContainer">
+            <div class="filterText">
+                Filters:
+            </div>
+            <div class="filterBar">
+                <a class="filter" id="ml">Machine Learning</a>
+                <a class="filter" id="febe">Frontend</a>
+                <a class="filter" id="sql">Backend</a>
+                <a class="filter" id="js">JavaScript</a>
+                <a class="filter" id="py">Python</a>
+                <a class="filter" id="gis">GIS</a>
+            </div>
+        </div>
         -->
-        
+    
 
         <!-- Selectors -->
         <div class="menu">
@@ -78,6 +83,113 @@
             </div>
         </div>
 
+        <div class="modal" id="helpModal">
+            <div class="modalContent active" id="textInfo">
+                <div class="helpText" id="helpText">
+                    <h2>ABOUT MASON'S PORTFOLIO</h2>
+                    <p>
+                        During my time studying for a Data Science degree at the University
+                        of Washington, I had the incredible opportunity to expand my
+                        programming abilities across multiple coding languages, as well as
+                        learned how to hone each of them to accomplish any challenge I am faced with.<br><br>
+
+                        Whether the programs I made were for class assignments or as passion
+                        projects, I started to realize that compiling them into a central
+                        website (even if its just in the form of a portfolio) would be a much
+                        better fate for them than if they were left to collect e-dust in my
+                        computer's hard drive.
+                    </p>
+                </div>
+
+                <div class="programContainer" id="programContainer">
+                    <div class="me" id="mason">
+                        <div class="meContainer">
+                            <img class="mePic" src="img/mecrop.png">
+                            <a class="meInfo">
+                                Created by Mason Howes
+                            </a>
+                        </div>
+                    </div>
+                    <div class="progs">
+                        <div class="prog" id="lg">
+                            About LetterGrid
+                        </div>
+
+                        <div class="progAbout" id="lgAb">
+                            <h2>About LetterGrid</h2>
+                            <p>
+                                Originally the only reason for this website's creation, I reached a point with programming where, even if it is relatively simple, I wanted to make something that wasn't just ran out of a script and was presentable.<br><br>
+                                I had practice with HTML CSS and JavaScript, but most of it was from class assignments that had a planned structure to how the end result should look, but with LetterGrid I finally gave website creation a go from the ground up.<br><br>
+                                Me and my friends loved playing The Crossword and other word games like Wordle, so I felt like I could try and make something of my own for everyone to try out, and as a result I became even more passionate for programming that I was before.<br><br>
+                                Alongside the Draw Tool program, this project really pushed my abilities to code something with JavaScript, and while it isn't in its final state since I have more plans for features, I personally find it my favorite thing I've made on this site.
+                            </p>
+                            <div class="okProg" id="okProg">BACK</div>
+                            <a class="extraInfo"><br>or Click Outside of Menu to Close</a>
+                        </div>
+    
+                        <div class="prog" id="st">
+                            About Speech Transcriber
+                        </div>
+
+                        <div class="progAbout" id="stAb">
+                            <h2>About Speech Transcriber</h2>
+                            <p>
+                                As I talk about in the "About" section of the program, this project was originally created in a Jupyter Notebook using Python. However, when trying to port it over to this website, the original library that I used for voice recognition didn't carry over.<br><br>
+                                This is because of the libraries reliance on Python, and while there are workarounds to run Python code on websites, the library was still not compatible. Therefore, I decided to implement the Web Speech API. I initially wanted to do the entire program from scratch, since I had ample experience with training Machine Learning models on things like handwriting and image recognition, however gaining the number of audio samples required for a model was a task that I didn't have the resources for.<br><br>
+                                Therefore, I opted to do my best to push the existing APIs to their limits on this program, and even worked things like higher sampling rate, live page position updating and downloadable transcripts. Of the programs on this website, this is the one that I most want to revisit at some point in the future when circumstances are better and attempt to build it truly from the ground up, and see if I can even surpass the existing accuracy of the model.
+                            </p>
+                            <div class="okProg" id="okProg">BACK</div>
+                            <a class="extraInfo"><br>or Click Outside of Menu to Close</a>
+                        </div>
+    
+                        <div class="prog" id="pm">
+                            About Participatory Mapping
+                        </div>
+
+                        <div class="progAbout" id="pmAb">
+                            <h2>About Participatory Mapping</h2>
+                            <p>
+                                The oldest project on this site at the moment of writing this, Participatory Mapping also showed me the potential of creating websites. Bo Zhao, a GIS professor at the University of Washington, was the one who first taught me how to create websites and through this project I learned more about the potential that web development held.<br><br>
+                                I had already taken classes that taught SQL (database coding language), but for the most part they were purely queries. Some of them did show me how to work SQL into bigger programs, but this was the first assignment where I really saw the potential it held.<br><br>
+                                Utilizing the MapBox API for map implementation, Heroku for a dynamic webpage, and pgAdmin4 for database hosting, as well as a mix of HTML, CSS and Javascript for web page creation, and finally SQL for back end development, this project ended up being the program that has the most moving pieces on this site.
+                            </p>
+                            <div class="okProg" id="okProg">BACK</div>
+                            <a class="extraInfo"><br>or Click Outside of Menu to Close</a>
+                        </div>
+    
+                        <div class="prog" id="dt">
+                            About Drawing Tool
+                        </div>
+
+                        <div class="progAbout" id="dtAb">
+                            <h2>About Drawing Tool</h2>
+                            <p>
+                                Without a doubt, Drawing Tool pushed my understanding of the JavaScript coding language the furthest. Containing over 1,000 lines of code across the HTML, CSS, and JavaScript implementation (with the majority being JavaScript), I believe it to be the most complicated thing that I've programmed on this site.<br><br>
+                                This program was originally created to see if I could even do it, not as a way to showcase existing knowledge. And while I do think it still has a ways to go, especially with the Mobile version of the menu, I'm still extremely proud of it. Of these projects, it definitely has the most work put into being adaptable to any screen size.<br><br>
+                                One of the biggest hurdles to overcome in it was both the color selector functionality and the resizing of the drawing functionality, but I believe that I nearly have both of them perfected.<br><br>
+                                At some point, I do want to go back and clean a lot of it up and even add new features such as pressure sensitivity on mobile devices, and maybe even different brush types, but I think I will save that for if I ever port it to be an actual application instead of a web-based drawing application.
+                            </p>
+                            <div class="okProg" id="okProg">BACK</div>
+                            <a class="extraInfo"><br>or Click Outside of Menu to Close</a>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Page Switcher -->
+                <div class="pageContainer">
+                    <div class="circleButton active" id="1"></div>
+                    <div class="circleButton" id="2"></div>
+                    <div class="circleButton" id="3"></div>
+                    <div class="squareButton" id="4"></div>
+                </div>
+                
+
+                <div class="okButton" id="okButton">NEXT</div>
+                <a class="extraInfo"><br>or Click Outside of Menu to Close</a>
+            </div>
+        </div>
+
         <!-- Attributions -->
         <a class="attr">
             Mason Howes 2024
@@ -103,8 +215,8 @@
 
         
         <script src="animationFixer.js"></script>
+        <script src="aboutMenu.js"></script>
         <script>
-            let isAbout = false;
             /* I know this is scuffed, will change when more than just a couple buttons */
             function navigateToPageOne() {
                 window.location.href = 'Programs/LetterGrid.html';
@@ -120,13 +232,6 @@
 
             function navigateToPageFour() {
                 window.location.href = 'Programs/DrawingTool.html';
-            }
-
-            function aboutMode() {
-                const aboutButton = document.getElementById('aboutButton');
-                isAbout = !isAbout;
-                aboutButton.src = isAbout ? 'img/less.png' : 'img/more.png';
-
             }
         </script>
     </body>

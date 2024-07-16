@@ -56,19 +56,77 @@ a:link, a:visited {
     align-items: center;
 }
 
-.aboutButton {
-    background-color: rgb(18, 79, 158);
-    height: 40px;
-    border-radius: 100px;
-    padding: 3px;
+
+.testButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
 }
 
+.testButtonGlow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(90deg, rgba(255, 152, 111, 0.75), rgba(255, 197, 111, 0.75), rgba(241, 255, 111, 0.75), rgba(145, 255, 111, 0.75));
+    border-radius: 25px;
+    background-size: 200% 200%;
+    width: 230px;
+    height: 40px;
+    z-index: -2;
+    animation: gradientShift 5s infinite;
+}
+
+@keyframes gradientShift {
+    0%{background-position:0% 50%}
+    33%{background-position:50% 100%}
+    67%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.testButtonBlurFilter {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    padding: 15px;
+    border-radius: 25px;
+    backdrop-filter: blur(25px);
+    z-index: -1;
+}
+
+.testButtonBorder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(90deg, rgba(255, 152, 111, 0.75), rgba(255, 197, 111, 0.75), rgba(241, 255, 111, 0.75), rgba(145, 255, 111, 0.75));
+    background-size: 200% 200%;
+    width: 235px;
+    height: 45px;
+    border-radius: 45px;
+    animation: gradientShift 5s infinite;
+}
+
+.aboutPortfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(18, 79, 158, 0.8);
+    width: 229px;
+    height: 39px;
+    border-radius: 25px;
+    margin-left: -229px;
+}
+
+/*
 .filterContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 20px;
+    
 }
 
 .filterBar {
@@ -78,7 +136,7 @@ a:link, a:visited {
 }
 
 .filter {
-    background-color: rgba(30, 93, 175, 0.5);
+    background-color: rgba(30, 93, 175, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,21 +145,21 @@ a:link, a:visited {
     padding: 2px;
     padding-left: 4px;
     padding-right: 4px;
-    color: rgba(96, 165, 255, 0.8)
+    color: rgb(115, 176, 255)
 }
-
+*/
 
 /* Main Menu */
 .menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 75px; /*15*/
+    margin-top: 30px;
     padding-left: 12px;
 }
 
 .buttonContainer {
-    background-color: rgb(0, 18, 41);
+    background-color: rgba(0, 8, 20, 0.3);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -294,6 +352,10 @@ a:link, a:visited {
 
 @media screen and (max-width: 700px) {
 
+    body {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
     .topnav {
         margin: -10px;
         height: 50px;
@@ -350,26 +412,42 @@ a:link, a:visited {
 
     .attr {
         margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .filterContainer {
+        margin-bottom: -35px;
+    }
+
+    .filterBar {
+        width: 75%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+    .filter {
+        height: 25px;
+        margin: 5px;
+    }
+
+    .programContainer {
+        
+        margin-left: 0px;
+        width: 95%;
+    }
+    
+    .progs {
+        width: 95%;
+    }
+
+    .prog {
+        padding-left: 50%;
+        padding-right: 50%;
     }
 }
 
 /* Interactions */
-
-/* About Button */
-.aboutButton:hover {
-    cursor: pointer;
-    animation-name: aboutHover;
-    animation-duration: 0.03s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-}
-
-.aboutButton:hover .aboutThese {
-    animation-name: aboutHoverContainer;
-    animation-duration: 0.03s;
-    animation-fill-mode: forwards;
-    animation-timing-function: ease-in;
-}
 
 /* LetterGrid */
 .buttonOne:hover {
@@ -495,6 +573,11 @@ a:link, a:visited {
     animation-timing-function: ease-in;
 }
 
+.aboutPortfolio:hover {
+    cursor: pointer;
+    background-color: rgba(52, 124, 218, 0.8);
+}
+
 /* Animations */
 @keyframes hover {
     from {
@@ -546,10 +629,13 @@ a:link, a:visited {
 }
 
 @keyframes aboutHover {
+    from {
+        width: 235px;
+        height: 45px;
+    }
     to {
-        padding: 6px;
-        margin-top: 47px;
-        margin-bottom: -3px;
+        width: 240px;
+        height: 50px;
     }
 }
 
@@ -585,4 +671,227 @@ a:link, a:visited {
 @-ms-viewport {
     scrollbar-color: #4772AA #001229;
     scrollbar-width: thin;
+}
+
+/* Help menu */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Help menu content */
+.modalContent {
+    display: none;
+    background-color: rgb(5, 44, 94);
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    border-radius: 10px;
+    animation-name: slideIn;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in;
+}
+
+.modalContent.active {
+    display: block;
+}
+
+.programContainer {
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Scrollbar Styling */
+.programContainer::-webkit-scrollbar {
+    width: 12px;
+}
+
+.programContainer::-webkit-scrollbar-track {
+    background: rgba(0, 35, 82, 0.9);
+    border-radius: 15px;
+}
+
+.programContainer::-webkit-scrollbar-thumb {
+    background: rgba(71, 114, 170, 0.6);
+    border-radius: 15px;
+}
+
+.programContainer::-webkit-scrollbar-thumb:hover {
+    background: rgba(71, 114, 170, 0.3);
+    cursor: pointer;
+}
+
+.me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4%;
+    width: 87%;
+}
+
+.meContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/mecrop.png);
+    background-position: 5% 65%;
+    width: 100%;
+    height: 75px;
+    border-radius: 25px;
+}
+
+.mePic {
+    height: 65px;
+    width: 65px;
+    border-radius: 25px;
+    margin: 10px;
+}
+
+.meInfo {
+    font-size: 21px;
+    margin: 10px;
+}
+
+.progs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    max-height: 450px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin-left: 12px;
+}
+
+.prog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(34, 99, 184, 0.5);
+    padding: 25px 20px;
+    margin: 2%;
+    margin-top: 0%;
+    margin-bottom: 4%;
+    height: 200px;
+    width: 35%;
+    max-height: 200px;
+    border-radius: 25px;
+    font-size: 24px;
+}
+
+.progAbout {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-left: -12px;
+    padding: 20px;
+    position: fixed;
+    background-color: rgb(5, 44, 94);
+    width: 80%;
+    height: 60%;
+    max-width: 500px;
+    max-height: 800px;
+    border-radius: 25px;
+    font-size: 24px;
+    z-index: 3;
+    font-size: 14px;
+}
+
+.progAbout.active {
+    display: flex;
+}
+
+.prog:hover {
+    background-color: rgba(34, 99, 184, 0.8);
+    cursor: pointer;
+}
+
+.okButton, .okProg {
+    background-color: rgba(34, 99, 184, 0.5);
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.okButton:hover, .okProg:hover {
+    background-color: rgba(34, 99, 184, 0.8);
+    cursor: pointer;
+}
+
+.pageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20px;
+}
+
+.circleButton, .squareButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-right: 7px;
+}
+
+.circleButton {
+    border-radius: 25px;
+    background-color: rgba(34, 99, 184, 0.3);
+}
+
+.circleButton.active {
+    background-color: rgba(34, 99, 184, 1);
+}
+
+.squareButton {
+    border-radius: 2px;
+    background-color: rgba(34, 99, 184, 0.3);
+}
+
+.squareButton.active {
+    background-color: rgba(34, 99, 184, 1);
+}
+
+.extraInfo {
+    color: rgba(34, 99, 184, 1);
+}
+
+@keyframes slideIn {
+    from { 
+        top: -300px; opacity: 0;
+    }
+    to {
+        top: 0; opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        top: 0; opacity: 1;
+    }
+    to {
+        top: -300px; opacity: 0;
+    }
 }
