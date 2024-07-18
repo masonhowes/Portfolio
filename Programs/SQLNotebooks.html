@@ -25,7 +25,7 @@
                 <hr style="width:99%;text-align:center;">
                 <p>While the main goal with this website is to display things I've made in the past in an in-website nicely interfaced format, some programs are either generally unportable or better viewed in the format of a Jupyter Notebook.</p>
                 <p>Provided below is a list of a few of the SQL projects that I have worked on while picking up the language, and over time I plan to add more whenever I locate the files/create new projects.</p>
-                <p><b>IMPORTANT</b>: Each program has a Google Colab upload and a raw Jupyter Notebook upload. Google Colab does not natively support running any Jupyter Notebooks besides ones written in Python. If you want to run the programs instead of just viewing the code, I recommend downloading <a href="https://www.sqlite.org/">SQLite3</a> and copy-pasting the code into it.</p>
+                <p><b>IMPORTANT</b>: Each program has a Google Colab upload, a raw Jupyter Notebook upload, and an in-website notebook viewer. Google Colab does not natively support running any Jupyter Notebooks besides ones written in Python. If you want to run the programs instead of just viewing the code, I recommend downloading <a href="https://www.sqlite.org/">SQLite3</a> and copy-pasting the code into it.</p>
             </div>
 
             <div class="notebooks">
@@ -40,7 +40,7 @@
 
             <div class="notebooks">
                 <p class="infoNB">
-                    💉 Notebook 2: Vaccine Scheduler&nbsp; •&nbsp; <a href="https://colab.research.google.com/drive/17jyrV8WeokQvf9-tcd2KSdRbee377yaS?usp=sharing">Google Colab</a>, <a href="ipynb_dls/SQL_Java_Vaccine_Scheduler.ipynb">Notebook Download</a>, or 
+                    💉 Notebook 2: Java & SQL Vaccine Scheduler&nbsp; •&nbsp; <a href="https://colab.research.google.com/drive/17jyrV8WeokQvf9-tcd2KSdRbee377yaS?usp=sharing">Google Colab</a>, <a href="ipynb_dls/SQL_Java_Vaccine_Scheduler.ipynb">Notebook Download</a>, or 
                     <button class="toggleBtn" onclick="toggleNotebook('notebook2', this)">View In-Website</button>
                 </p>
                 <div id="notebook2" class="notebookViewer">
@@ -48,8 +48,18 @@
                 </div>
             </div>
 
-        </div>
+            <div class="notebooks">
+                <p class="infoNB">
+                    🌎 Notebook 3: SQL++ Mondial Database Manipulation&nbsp; •&nbsp; <a href="https://colab.research.google.com/drive/1Kt6wnctxfMuIac0Bk6aYssxDlbvgcNwx?usp=sharing">Google Colab</a>, <a href="ipynb_dls/SQL_plusplus_Mondial_Manip.ipynb">Notebook Download</a>, or 
+                    <button class="toggleBtn" onclick="toggleNotebook('notebook3', this)">View In-Website</button>
+                </p>
+                <div id="notebook3" class="notebookViewer">
+                    <iframe src="https://nbviewer.org/github/masonhowes/Portfolio/blob/main/Programs/ipynb_dls/SQL_Java_Vaccine_Scheduler.ipynb" width="100%" height="600px"></iframe>
+                </div>
+            </div>
 
+        </div>
+        
         <script>
             function toggleNotebook(id, button) {
                 var notebook = document.getElementById(id);

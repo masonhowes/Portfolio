@@ -51,6 +51,7 @@ a:visited {
     margin-top: 50px;
     margin-left: 10%;
     margin-right: 10%;
+    padding-bottom: 50px;
     width: 80%;
     height: auto;
 }
@@ -67,7 +68,7 @@ a:visited {
 }
 
 .notebooks {
-    background-color: rgba(5, 56, 133, 0.5);
+    background-color: rgba(5, 56, 133, 0.6);
     display: block;
     justify-content: center;
     align-items: center;
