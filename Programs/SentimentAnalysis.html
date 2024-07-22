@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mason Howes Portfolio</title>
+        <link rel="icon" href="img/m.png">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="SentimentAnalysis.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <div class="topnav" id="homePage">
+            <div class="logo">
+                <a class="active" href="../index.html">
+                    <img src="../img/m.png">
+                </a>
+            </div>
+        </div>
+
+        <div class="notebookContainer">
+            <div class="notebookInfo">
+                <h2 align="center">AI Sentiment Analysis</h2>
+                <hr style="width:99%;text-align:center;">
+                <p>Artificial Intelligence Sentiment Analysis Python Program by Mason Howes utilizing Machine Learning, Natural Language Processing, Classification, Data Visualization and the Automation of an Intelligent Behavior</p>
+                <p>This program uses a dataset of Amazon.com reviews, <a href="https://cseweb.ucsd.edu/~jmcauley/datasets.html#amazon_reviews">found here</a>. More information about this dataset can be found within the Jupyter Notebook holding the program.</p>
+                <p>In order to run this program, you need to <a href="food_products.csv">download the dataset</a> as well as the <a href="ipynb_dls/AI_Sentiment_Analysis.ipynb">Jupyter Notebook</a>. Place each of these files in the same file location and run the Jupyter Notebook.</p>
+                <p></p>
+            </div>
+
+            <div class="notebooks">
+                <p class="infoNB">
+                    AI Sentiment Analysis Program&nbsp; •&nbsp; <a href="https://colab.research.google.com/drive/1aulQrlyRFD6xCTVpuMZN3tQ-xVjP84WA?usp=sharing">Google Colab</a>, <a href="ipynb_dls/AI_Sentiment_Analysis.ipynb">Notebook Download</a>, or 
+                    <button class="toggleBtn" onclick="toggleNotebook('notebook1', this)">View In-Website</button>
+                </p>
+                <div id="notebook1" class="notebookViewer">
+                    <iframe src="#" width="100%" height="600px"></iframe>
+                </div>
+            </div>
+
+            <div class="notebookInfo">
+                <h2 align="center">Produced Data Visualizations</h2>
+                <hr style="width:99%;text-align:center;">
+                <p>For convenience, these are the 3 data visualizations that are produced by the program. Please note, that for each time you run it, the model will learn the data differently and may not produce the same images seen below.</p>
+                <p>If you want your run of the model to produce these exact results, uncomment the line of code in the Jupyter Notebook that sets the program seed to 416.</p>
+                <hr style="width:99%;text-align:center;">
+                <p><b>Visualization #1</b>: Distribution of the number of reviews per rating. A rating of 1.0 indicates the most Negative classification of a review, and a rating of 5.0 indicates the most Positive classifiation. In the code we delete the reviews at 2.5 <= x <= 3.5, since they are neutral and don't contribute much to finding extreme patterns.</p>
+                <div class="imgCont">
+                    <img class="imgSetup" src="sent_analysis_img/vis1.png">
+                </div>
+
+                <p><b>Visualization #2</b>: Confusion matrix to measure the accuracy of the sentiment model. This matrix helps us measure the models ability to correctly classify the reviews that were passed to it. The meaning of each square is as follows:</p>
+                <blockquote>
+                    <p>•&nbsp;Top Left: Correctly predicts a review to be Positive</p>
+                    <p>•&nbsp;Top Right: Incorrectly predicts a review to be Positive (review is actually Negative)</p>
+                    <p>•&nbsp;Bottom Left: Incorrectly predicts a review to be Negative (review is actually Positive)</p>
+                    <p>•&nbsp;Bottom Right: Correctly predicts a review to be Negative</p>
+                </blockquote>
+                <p>For the sake of being able to easily run this program, the csv file only contains a small fraction of the 500,000,000+ reviews in the dataset. If trained on the full dataset the model would have much more data to work with to learn patterns which may lead to increased accuracy.</p>
+                <div class="imgCont">
+                    <img class="imgSetup" src="sent_analysis_img/vis2.png">
+                </div>
+
+                <p><b>Visualization #3</b>: Observes effect the increase in L2 Regularization penalties has on the most positive and negative words. Introduces L2 Regularization into the model as a method to prevent it from overfitting the data, with the goal of increasing the accuracy.</p>
+                <p>While not integral to the functioning of the program, it's a nice way to visualize the goal of L2 regularization in penalizing coefficients that get too large and skew the results.</p>
+                <div class="imgCont">
+                    <img class="imgSetup" src="sent_analysis_img/vis3.png">
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            function toggleNotebook(id, button) {
+                var notebook = document.getElementById(id);
+                if (notebook.style.display === "none" || notebook.style.display === "") {
+                    notebook.style.display = "block";
+                    button.style.backgroundColor = "rgba(133, 5, 5, 0.5)";
+                    button.style.color = "#ff7b7b";
+                    button.onmouseover = function() {
+                        button.style.backgroundColor = "#cc2626";
+                        button.style.color = "white";
+                    };
+                    button.onmouseout = function() {
+                        button.style.backgroundColor = "rgba(133, 5, 5, 0.5)";
+                        button.style.color = "#ff7b7b";
+                    }
+                } else {
+                    notebook.style.display = "none";
+                    button.style.backgroundColor = "";
+                    button.style.color = "";
+                    button.onmouseover = function() {
+                        button.style.backgroundColor = "#2678cc";
+                        button.style.color = "white";
+                    }
+                    button.onmouseout = function() {
+                        button.style.backgroundColor = "rgba(5, 56, 133, 0.5)";
+                        button.style.color = "#3292ff";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

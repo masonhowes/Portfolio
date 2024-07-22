@@ -1,0 +1,178 @@
+/* Website Defaults */
+html {
+    height: 100%;
+}
+
+body {
+    background-color: rgb(0, 21, 49);
+    font-family: 'Verdana', sans-serif;
+    color: #ffffff;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+a:link {
+    color: #3292ff;
+}
+
+a:visited {
+    color: #a647ff;
+}
+
+/* Navigation Bar */
+.topnav {
+    background-color: rgba(5, 56, 133, 0.5);
+    display: block;
+    align-content: space-around;
+    margin: -10px;
+    height: 50px;
+    border-bottom: 0px solid rgb(255, 213, 205);
+    filter: drop-shadow(0px 0px 4px rgba(1, 1, 33, 0.202));
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+}
+
+.logo img {
+    height: 50px;
+    padding-top: 4px;
+}
+
+.notebookContainer {
+    display: block;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 50px;
+    width: 80%;
+    height: auto;
+}
+
+.notebookInfo {
+    background-color: rgba(5, 56, 133, 0.3);
+    display: block;
+    width: 90%;
+    height: auto;
+    overflow-y: auto;
+    text-align: left;
+    padding: 5%;
+    border-radius: 15px;
+}
+
+.notebooks {
+    background-color: rgba(5, 56, 133, 0.6);
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow-y: auto;
+    text-align: left;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.notebookViewer {
+    display: none;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.imgCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgSetup {
+    width: 700px;
+}
+
+.toggleBtn {
+    background-color: rgba(5, 56, 133, 0.5);
+    color: #3292ff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.toggleBtn:hover {
+    color: white;
+    background-color: #2678cc;
+}
+
+/* Scrollbar Styling */
+.notebookInfo::-webkit-scrollbar {
+    width: 12px;
+}
+
+.notebookInfo::-webkit-scrollbar-track {
+    background: #001229;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.notebookInfo::-webkit-scrollbar-thumb {
+    background: rgba(71, 114, 170, 0.6);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.notebookInfo::-webkit-scrollbar-thumb:hover {
+    background: rgba(71, 114, 170, 0.3);
+    cursor: pointer;
+}
+
+/* Firefox Support*/
+.custom-scrollbar {
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: #4772AA #001229; /* Color of the thumb and track */
+}
+
+/* Edge Support */
+@-ms-viewport {
+    scrollbar-color: #4772AA #001229;
+    scrollbar-width: thin;
+}
+
+.notebooks::-webkit-scrollbar {
+    width: 12px;
+}
+
+.notebooks::-webkit-scrollbar-track {
+    background: #001229;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.notebooks::-webkit-scrollbar-thumb {
+    background: rgba(71, 114, 170, 0.6);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.notebooks::-webkit-scrollbar-thumb:hover {
+    background: rgba(71, 114, 170, 0.3);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .imgSetup {
+        width: 100%;
+    }
+}
