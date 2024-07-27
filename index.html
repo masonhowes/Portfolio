@@ -18,15 +18,25 @@
             </div>
         </div>
 
-        <!-- About Switcher -->
-        <div class="testButtonContainer">
-            <div class="testButtonGlow">
-                <div class="testButtonBlurFilter">
-                    <div class="testButtonBorder"></div>
+        <div class="upperOptions">
+            <!-- About Switcher -->
+            <div class="testButtonContainer">
+                <div class="testButtonGlow">
+                    <div class="testButtonBlurFilter">
+                        <div class="testButtonBorder"></div>
+                    </div>
                 </div>
+                <div class="aboutPortfolio" id="help">About Mason's Portfolio</div>
             </div>
-            <div class="aboutPortfolio" id="help">About Mason's Portfolio</div>
+
+            <!-- View GitHub Page -->
+            <!--
+            <div class="githubRedirectContainer" id="repo">
+                <div class="githubRedirect">Code Repository</div>
+            </div>
+            -->
         </div>
+
 
         <!-- Filter Bar -->
         <!--
@@ -85,7 +95,11 @@
                     </div>
                 </div>
 
-                
+                <div class="buttonSeven" onclick="navigateToPageSeven()">
+                    <div class="textContainer">
+                        <a href="Programs/AmbientVideo.html">Ambient Video Theater</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -196,6 +210,21 @@
             </div>
         </div>
 
+        <div class="modal" id="repoModal">
+            <div class="modalContent active" id="repoPrompter">
+                <div class="helpText" id="helpText">
+                    <h2>VIEW CODE REPOSITORY</h2>
+                    <p>
+                        To view the repository, please type "MASONHOWES" in the space below.
+                    </p>
+                </div>
+                
+
+                <div class="okButton" id="okButton">CLOSE</div>
+                <a class="extraInfo"><br>or Click Outside of Menu to Close</a>
+            </div>
+        </div>
+
         <!-- Attributions -->
         <a class="attr">
             Mason Howes 2024
@@ -222,6 +251,7 @@
         
         <script src="animationFixer.js"></script>
         <script src="aboutMenu.js"></script>
+        <script src="githubRedirect.js"></script>
         <script>
             /* I know this is scuffed, will change when more than just a couple buttons */
             function navigateToPageOne() {

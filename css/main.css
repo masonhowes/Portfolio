@@ -9,7 +9,8 @@ body {
     color: #ffffff;
     height: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+
 }
 
 /* Disable Default Hyperlink Appearance */
@@ -56,12 +57,19 @@ a:link, a:visited {
     align-items: center;
 }
 
+.upperOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
 
 .testButtonContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .testButtonGlow {
@@ -118,7 +126,23 @@ a:link, a:visited {
     width: 229px;
     height: 39px;
     border-radius: 25px;
-    margin-left: -229px;
+    margin-left: -229.5px;
+}
+
+.githubRedirectContainer {
+    background-color: rgba(18, 79, 158, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 175px;
+    height: 39px;
+    margin-left: 20px;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+.githubRedirect {
+
 }
 
 /*
@@ -155,12 +179,10 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    padding-left: 12px;
+    margin-top: 25px;
 }
 
 .buttonContainer {
-    background-color: rgba(0, 8, 20, 0.3);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -168,8 +190,6 @@ a:link, a:visited {
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 15px;
-    max-height: 500px;
-    overflow-y: scroll;
 }
 
 .textContainer {
@@ -369,6 +389,32 @@ a:link, a:visited {
     height: 100%
 }
 
+.buttonSeven {
+    background-image: linear-gradient(90deg, rgba(5, 56, 133, 0.5), rgba(18, 79, 158, 0.5)), url('../img/ambient.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 12.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    font-size: 22px;
+    border-radius: 25px;
+    text-decoration: none;
+
+    margin-right: 12.5px;
+    margin-bottom: 12.5px;
+}
+
+.buttonSeven a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
 /* Inactive Button Design
 .buttonFiller {
     background-color: rgba(5, 56, 133, 0.3);
@@ -400,6 +446,7 @@ a:link, a:visited {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 .github img {
@@ -428,6 +475,16 @@ a:link, a:visited {
     
     .logo img {
         height: 50px;
+    }
+
+    .upperOptions {
+        flex-direction: column;
+    }
+
+    .githubRedirectContainer {
+        margin-left: 0px;
+        width: 230px;
+        margin-bottom: -10px;
     }
 
     .menu {
@@ -473,6 +530,12 @@ a:link, a:visited {
         margin-bottom: 12.5px;
     }
 
+    .buttonSeven {
+        height: 200px;
+        margin-bottom: 12.5px;
+        margin-right: 0px;
+    }
+
     .attr {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -513,6 +576,7 @@ a:link, a:visited {
         padding-right: 50%;
     }
 }
+
 
 /* Interactions */
 
@@ -702,7 +766,43 @@ a:link, a:visited {
     animation-timing-function: ease-in;
 }
 
+/* Ambient Video Theater */
+.buttonSeven:hover {
+    cursor: pointer;
+    animation-name: backgroundRepos;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonSeven:hover .textContainer {
+    animation-name: hover;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    cursor: pointer;
+}
+
+.buttonSeven .textContainer {
+    animation-name: shrink;
+    animation-duration: 0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
+.buttonSeven {
+    animation-name: backgroundPos;
+    animation-duration: 0.0s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+}
+
 .aboutPortfolio:hover {
+    cursor: pointer;
+    background-color: rgba(52, 124, 218, 0.8);
+}
+
+.githubRedirectContainer:hover {
     cursor: pointer;
     background-color: rgba(52, 124, 218, 0.8);
 }

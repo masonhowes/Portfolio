@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ambient Video Theater - Mason Howes Portfolio</title>
+    <link rel="icon" href="../img/m.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="AmbientVideo.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <div class="topnav" id="homePage">
+        <div class="logo">
+            <a class="active" href="../index.html">
+                <img src="../img/m.png">
+            </a>
+        </div>
+    </div>
+
+    <div class="pageContent">
+        <div class="contentCont">
+            <p class="titleText">Ambient Video Theater</p>
+
+            <div class="videoContainer">
+
+                <video class="videoBackground" loop muted></video>
+
+                <video class="videoPlayer" controls loop muted>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        
+            <p class="headerText">Select existing video</p>
+        
+            <div class="thumbContainer">
+                <video class="thumbVideo" src="ambient_videos/ocean2.mp4" muted></video>
+                <video class="thumbVideo" src="ambient_videos/freshwater2.mp4" muted></video>
+                <video class="thumbVideo" src="ambient_videos/people.mp4" muted></video>
+                <video class="thumbVideo" src="ambient_videos/comparing2.mp4" muted></video>
+            </div>
+        
+            <p class="subText">OR</p>
+        
+            <p class="headerText">Upload your own</p>
+        
+            <div class="userUploadContainer">
+                <input type="file" id="uploadInput" accept="video/*">
+                <div class="uploadThumb"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="AmbientVideo.js"></script>
+</body>
+</html>
